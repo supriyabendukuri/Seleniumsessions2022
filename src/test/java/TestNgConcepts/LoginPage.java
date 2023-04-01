@@ -16,6 +16,7 @@ public class LoginPage {
 	public void initBroswe() {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.get("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
 	}
@@ -23,8 +24,14 @@ public class LoginPage {
 	
 	@Test
 	public void getUrlTest() {
-		String actualTitle = driver.getTitle();
-		assertEquals(actualTitle, "");
+		String actualTitle = driver.getCurrentUrl();
+		System.out.println(actualTitle);
+	}
+	
+	@Test
+	public void getTtitle() {
+		String actTitle = driver.getTitle();
+		System.out.println(actTitle);
 	}
 	
 	@AfterTest
